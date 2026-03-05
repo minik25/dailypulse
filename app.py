@@ -455,8 +455,8 @@ with tab_food:
     if selected_fdc_id and selected_fdc_id != st.session_state.usda_last_fdc_id:
         try:
             details = usda_get_food_details(selected_fdc_id, USDA_API_KEY)
-            cal, p, c, _ = extract_macros_from_usda(details)
-            print("AUTOFILL VALUES:", cal, p, c, f)
+            cal, p, c = extract_macros_from_usda(details)
+            print("AUTOFILL VALUES:", cal, p, c)
 
             # Write directly into the input widget keys
             st.session_state.food_calories = float(cal)
